@@ -8,6 +8,10 @@ wheels/
 
 # Virtual environments
 .venv
+.env
 
 # Banco de dados local (opcional, se quiser ignorar logs ou dumps)
 *.sql
+
+# Cache do Alembic
+migrations/versions/__pycache__/
