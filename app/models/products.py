@@ -1,12 +1,6 @@
-from sqlalchemy import Column, String, ForeignKey, Numeric, Integer, Enum
+from sqlalchemy import Column, String, ForeignKey, Numeric, Boolean, Integer
 from sqlalchemy.orm import relationship
 from app.database import Base
-import enum
-
-
-class PriceType(enum.Enum):
-    RETAIL = "retail"
-    WHOLESALE = "wholesale"
 
 
 class Product(Base):

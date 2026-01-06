@@ -76,3 +76,64 @@ Pydantic Settings: Assegura que nenhuma credencial fique exposta no código font
 .gitignore: Configurado para ignorar .env, __pycache__ e diretórios de ambiente virtual.
 
 Asyncpg: Driver assíncrono para garantir que o banco não seja um gargalo sob alta carga.
+
+🚀 Stella Vita - Backend API
+Sistema de gestão de semi-joias com diferenciação de preços para varejo e atacado.
+
+🛠️ O que foi implementado (Semana 2)
+1. Autenticação e Usuários
+Modelagem de Usuários: Implementada a tabela users com suporte a first_name, last_name e email.
+
+Hierarquia de Acesso: Criada a tabela user_types para gerenciar perfis (ex: admin, wholesale, retail).
+
+Segurança: Preparado o sistema para criptografia de senhas com passlib e bcrypt (limite de 72 bytes).
+
+Validação: Implementado EmailStr do Pydantic para garantir integridade dos cadastros.
+
+2. Banco de Dados
+Relacionamentos: Configurado o vínculo entre usuários e seus tipos (FK).
+
+Migrações: Histórico de tabelas atualizado via Alembic.
+
+🚦 Como rodar o projeto agora
+1. Instalar novas dependências
+Agora utilizamos o email-validator para os schemas:
+
+Bash
+
+uv add email-validator passlib[bcrypt]
+2. Configurar o Banco de Dados
+Caso tenha resetado o ambiente, siga a ordem:
+
+Bash
+
+docker compose up -d
+uv run alembic upgrade head
+3. Criar Tipos e Usuário de Teste
+Utilize o script de seed para popular o banco inicial:
+
+Bash
+
+uv run python -m app.seed
+4. Endpoints Disponíveis (Swagger)
+Acesse http://localhost:8000/docs para testar:
+
+POST /users/types: Criar novos perfis de acesso (ex: VIP).
+
+POST /users/: Registrar novos usuários vinculados a um tipo.
+
+🏗️ Estrutura de Arquivos Atualizada
+app/models/user.py: Modelos SQLAlchemy para User e UserType.
+
+app/schemas/user.py: Validação Pydantic para entrada e saída de dados.
+
+app/routes/user.py: Rotas de API para gestão de contas.
+
+app/seed.py: Script de população inicial do banco.
+
+Próximos Passos (Próxima Sessão):
+[ ] Implementar Login com JWT (JSON Web Token).
+
+[ ] Criar Dependência get_current_user para proteger rotas.
+
+[ ] Lógica de filtragem de preços baseada no user_type_id.

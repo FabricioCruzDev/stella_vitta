@@ -16,3 +16,5 @@ wheels/
 # Cache do Alembic
 migrations/versions/__pycache__/
 Guia.md
+JustFile.md
+.idea/.gitignore
