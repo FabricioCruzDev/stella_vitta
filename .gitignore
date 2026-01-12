@@ -18,3 +18,12 @@ migrations/versions/__pycache__/
 Guia.md
 JustFile.md
 .idea/.gitignore
+.idea/data_source_mapping.xml
+.idea/dataSources.xml
+.idea/db-forest-config.xml
+.idea/modules.xml
+.idea/stella_vita.iml
+.idea/vcs.xml
+migrations/versions/6e7aa681f848_create_users_table.py
+migrations/versions/c37d8d85c37c_create_user_and_user_types_tables.py
+uv.lock

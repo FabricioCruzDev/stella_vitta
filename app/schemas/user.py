@@ -14,6 +14,7 @@ class UserCreate(BaseModel):
     last_name: str
     email: str
     password: str
+    role: str
     user_type_id: int
 
 #Retorno 
@@ -23,6 +24,7 @@ class UserRead(BaseModel):
     last_name: str
     email: EmailStr
     is_active: bool
+    user_type_id: int
     user_type: UserTypeRead
 
     model_config = ConfigDict(from_attributes = True)
