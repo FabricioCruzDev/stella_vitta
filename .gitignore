@@ -12,6 +12,9 @@ wheels/
 
 # Banco de dados local (opcional, se quiser ignorar logs ou dumps)
 *.sql
+datawarehouse/raw
+postgres_data/
+
 
 # Cache do Alembic
 migrations/versions/__pycache__/
@@ -27,3 +30,6 @@ JustFile.md
 migrations/versions/6e7aa681f848_create_users_table.py
 migrations/versions/c37d8d85c37c_create_user_and_user_types_tables.py
 uv.lock
+
+# outputs
+etiquetas_output/
