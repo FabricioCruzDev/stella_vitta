@@ -39,7 +39,7 @@ def gerar_etiquetas_frente_verso(row):
     # Tratamento do Valor
     try:
         valor_num = float(row['VALOR FINAL'])
-        valor_formatado = f"R$ {valor_num:,.2f}".replace(',', 'X').replace('.', ',').replace('X', '.')
+        valor_formatado = f"{valor_num:,.2f}".replace(',', 'X').replace('.', ',').replace('X', '.')
     except (ValueError, TypeError):
         valor_formatado = "0,00"
 
