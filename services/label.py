@@ -41,7 +41,7 @@ def gerar_etiquetas_frente_verso(row):
         valor_num = float(row['VALOR FINAL'])
         valor_formatado = f"R$ {valor_num:,.2f}".replace(',', 'X').replace('.', ',').replace('X', '.')
     except (ValueError, TypeError):
-        valor_formatado = "R$ 0,00"
+        valor_formatado = "0,00"
 
     # FRENTE
     frente = f"""<svg width="{w}mm" height="{h}mm" viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg">
