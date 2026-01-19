@@ -32,4 +32,4 @@ migrations/versions/c37d8d85c37c_create_user_and_user_types_tables.py
 uv.lock
 
 # outputs
-etiquetas_jpg/
+etiquetas/

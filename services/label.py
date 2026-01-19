@@ -71,7 +71,7 @@ def gerar_etiquetas_frente_verso(row):
     verso = f"""<svg width="{w}mm" height="{h}mm" viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg">
         <rect width="100%" height="100%" fill="white"/>
         
-        <text x="{w/2}" y="3" font-family="Verdana, sans-serif" font-size="2" 
+        <text x="{w/2}" y="3" font-family="Georgia, Geneva, sans-serif" font-size="2" 
               text-anchor="middle" fill="#888" letter-spacing="0.2">{sku_str}</text>
         
         <g transform="translate({(w-9)/2}, 4.5) scale(0.35)">
@@ -82,7 +82,7 @@ def gerar_etiquetas_frente_verso(row):
     return frente, verso
 
 
-def salvar_etiquetas(df, pasta_destino="etiquetas_jpg"):
+def salvar_etiquetas(df, pasta_destino="etiquetas"):
     if not os.path.exists(pasta_destino):
         os.makedirs(pasta_destino)
 
@@ -126,9 +126,10 @@ df['VALOR FINAL'] = round(df['VALOR FINAL'], 2)
 df['DESC'] = df['DESCRICAO'].apply(normalize_descricao)
 df['VALOR_STR'] = df['VALOR FINAL'].apply(lambda x: f"R$ {x:,.2f}".replace(',', 'X').replace('.', ',').replace('X', '.'))
 print(df.head(10))
+df_etiqueta = df[['DESC', 'VALOR FINAL', 'SKU']]
 
 salvar_etiquetas(df)
-
+df_etiqueta.to_excel('etiquetas/etiquetas.xlsx', index=False)
 
 
 if __name__ == "__main__":
