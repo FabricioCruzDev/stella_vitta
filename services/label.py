@@ -1,6 +1,13 @@
 import pandas as pd
+
 import os
+import io
+
 import segno
+import cairosvg
+from PIL import Image
+
+
 
 def normalize_descricao(text):
     if not isinstance(text, str):
@@ -75,29 +82,41 @@ def gerar_etiquetas_frente_verso(row):
     return frente, verso
 
 
-def salvar_etiquetas(df, pasta_destino="etiquetas_output"):
-    # Cria a pasta se não existir
+def salvar_etiquetas(df, pasta_destino="etiquetas_jpg"):
     if not os.path.exists(pasta_destino):
         os.makedirs(pasta_destino)
 
     for i, row in df.iterrows():
-        # Nome base usando o SKU para evitar duplicatas
-        sku_limpo = str(row['SKU']).replace("/", "-")
-        
-        # Gerar conteúdo (usando a lógica de 25x15mm anterior)
-        frente, verso = gerar_etiquetas_frente_verso(row)
-        
-        # Salvar Arquivo Frente
-        nome_frente = f"{sku_limpo}_01_FRENTE.svg"
-        with open(os.path.join(pasta_destino, nome_frente), "w", encoding="utf-8") as f:
-            f.write(frente)
-            
-        # Salvar Arquivo Verso
-        nome_verso = f"{sku_limpo}_02_VERSO.svg"
-        with open(os.path.join(pasta_destino, nome_verso), "w", encoding="utf-8") as f:
-            f.write(verso)
+        # 1. Obter os conteúdos SVG (usando sua função gerar_etiquetas_frente_verso)
+        frente_svg, verso_svg = gerar_etiquetas_frente_verso(row)
+        sku_nome = str(row['SKU']).replace("/", "-").replace(" ", "_")
 
-    print(f"Processo concluído! Arquivos salvos em: {pasta_destino}")
+        # 2. Processar Frente e Verso
+        for tipo, conteudo_svg in [("FRENTE", frente_svg), ("VERSO", verso_svg)]:
+            
+            # --- PASSO A: SVG para PNG em memória ---
+            # Aumentamos a escala (output_width) para garantir alta qualidade na impressão
+            png_data = cairosvg.svg2png(bytestring=conteudo_svg.encode('utf-8'), output_width=1000)
+            
+            # --- PASSO B: PNG para JPG com Pillow ---
+            img_png = Image.open(io.BytesIO(png_data))
+            
+            # Garantir fundo branco (caso haja transparência no SVG)
+            if img_png.mode in ("RGBA", "P"):
+                fundo_branco = Image.new("RGB", img_png.size, (255, 255, 255))
+                fundo_branco.paste(img_png, mask=img_png.split()[3]) # Usa o alpha como máscara
+                img_final = fundo_branco
+            else:
+                img_final = img_png.convert("RGB")
+
+            # --- PASSO C: Salvar no Disco ---
+            nome_arquivo = f"{sku_nome}_{tipo}.jpg"
+            caminho_final = os.path.join(pasta_destino, nome_arquivo)
+            
+            # Salvamos com qualidade máxima
+            img_final.save(caminho_final, "JPEG", quality=100, subsampling=0)
+
+    print(f"Sucesso! Etiquetas JPG geradas em: {pasta_destino}")
 
 # Buscando e preparando os dados
 df = pd.read_excel('./datawarehouse/raw/produtos-precificacao.xlsx', skiprows=1)
