@@ -352,31 +352,45 @@ footer {
     margin-bottom: 25px;
 }
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
+.contact-link {
+    color: var(--white);
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-size: 0.95rem;
 }
 
-.contact-icon {
+.contact-link:hover {
     color: var(--gold);
-    font-size: 1.2rem;
+    text-wrap: underline
 }
 
 .social-links a {
     color: var(--white);
     text-decoration: none;
-    margin: 0 10px;
-    font-size: 0.9rem;
-    transition: 0.3s;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: 0.3s ease;
     border-bottom: 1px solid transparent;
 }
 
 .social-links a:hover {
     color: var(--gold);
     border-bottom: 1px solid var(--gold);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.contact-icon {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 300;
 }
 
 .footer-bottom {
@@ -402,11 +416,34 @@ footer {
     }
 
     .header-logo {
-        height: 2.5rem;
+        height: 5.5rem;
+    }
+
+    .hero {
+        /* Reduzimos de 75vh para algo mais equilibrado no celular */
+        height: 50vh; 
+        min-height: 350px; /* Garante que não fique pequeno demais em celulares antigos */
+    }
+
+    .hero-content {
+        padding: 0 15px;
     }
 
     .hero h2 {
-        font-size: 2.2rem;
+        /* Diminuímos o tamanho da fonte para não ocupar a tela toda */
+        font-size: 2.2rem; 
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .btn-cta {
+        padding: 15px 30px; /* Botão um pouco menor para o polegar */
+        font-size: 0.85rem;
     }
 
     .input-row {
