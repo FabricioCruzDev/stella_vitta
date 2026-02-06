@@ -9,6 +9,7 @@ wheels/
 # Virtual environments
 .venv
 .env
+config.php
 
 # Banco de dados local (opcional, se quiser ignorar logs ou dumps)
 *.sql

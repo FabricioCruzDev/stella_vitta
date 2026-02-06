@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO BÁSICO -->
+  <title>Stella Vita | Use, encante-se, ame</title>
+  <meta name="description" content="Stella Vita Semijoias - Peças exclusivas de alta qualidade feitas para durar e encantar. Cadastre-se e faça parte do nosso universo de brilho e sofisticação.">
+  <meta name="keywords" content="semijoias, acessórios femininos, luxo, joias, Stella Vita, cuidados com joias, moda feminina">
+  <meta name="author" content="Stella Vita">
+  <meta name="robots" content="index, follow">
+
+  <!-- OPEN GRAPH (Para compartilhamento em Redes Sociais e WhatsApp) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stellavita.com.br/">
+  <meta property="og:title" content="Stella Vita | Semijoias Exclusivas">
+  <meta property="og:description" content="Descubra semijoias feitas para durar e encantar. Receba dicas de cuidados e lançamentos exclusivos.">
+  <meta property="og:image" content="https://stellavita.com.br/src/capa.png">
+
+  <!-- TWITTER -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://stellavita.com.br/">
+  <meta property="twitter:title" content="Stella Vita | Semijoias Exclusivas">
+  <meta property="twitter:description" content="Peças de qualidade com beleza sutil para empoderar sua autoestima.">
+  <meta property="twitter:image" content="https://stellavita.com.br/src/capa.png">
+
+  <!-- ÍCONE DA PÁGINA -->
+  <link rel="icon" type="image/png" href="./src/favicon.png">
+
+  <!-- FONTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- ESTILOS -->
+  <link rel="stylesheet" href="style.css?v=1.0">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <div class="logo-area">
+      <div class="logo-title-wrapper">
+        <img src="./src/logo-gold.png" alt="Stella Vita Logo" class="header-logo">
+      </div>
+      <p class="subtitle">SEMIJOIAS</p>
+      <div class="header-divider">
+        <span class="diamond"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION (CAPA) -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h2>Use, encante-se, ame</h2>
+        <p>Cadastre-se para receber inspirações e novidades exclusivas.</p>
+        <a href="#cadastro" class="btn-cta">INSPIRE-SE</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSÃO, VISÃO E VALORES -->
+  <section class="mvv-container">
+    <div class="mvv-box">
+      <h3>Missão</h3>
+      <p>Oferecer peças de qualidade com beleza sutil para empoderar e evoluir sua autoestima.</p>
+    </div>
+    <div class="mvv-box highlight">
+      <h3>Visão</h3>
+      <p>Celebrar memórias inesquecíveis junto a momentos imensuráveis com cada joia.</p>
+    </div>
+    <div class="mvv-box">
+      <h3>Valores</h3>
+      <p>Inovação sustentável, respeito aos clientes e compromisso com a excelência.</p>
+    </div>
+  </section>
+
+  <!-- ASSISTÊNCIA E CUIDADOS -->
+  <section class="assistance" id="assistencia">
+    <div class="section-title">
+      <h2>Assistência & Cuidados</h2>
+      <p>Para manter o brilho da sua Stella Vita por muito mais tempo</p>
+    </div>
+
+    <div class="care-grid">
+      <div class="care-item">
+        <div class="icon">✧</div>
+        <h4>Produtos Químicos</h4>
+        <p>Evite contato com perfumes, cremes e produtos de limpeza. Eles podem oxidar o banho da peça.</p>
+      </div>
+      <div class="care-item">
+        <div class="icon">✧</div>
+        <h4>Limpeza</h4>
+        <p>Use apenas uma flanela macia e seca. Nunca use produtos abrasivos.</p>
+      </div>
+      <div class="care-item">
+        <div class="icon">✧</div>
+        <h4>Armazenamento</h4>
+        <p>Guarde suas peças individualmente para evitar o atrito e riscos.</p>
+      </div>
+      <div class="care-item">
+        <div class="icon">✧</div>
+        <h4>Umidade</h4>
+        <p>Retire suas peças antes do banho, piscina ou mar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE CADASTRO -->
+  <section class="warranty-section" id="cadastro">
+    <div class="container-form">
+      <span class="form-tag">NEWSLETTER EXCLUSIVA</span>
+      <h2>Faça parte do nosso universo</h2>
+      <p>Cadastre-se para receber inspirações, lançamentos e cuidados com suas semijoias diretamente no seu e-mail e WhatsApp.</p>
+
+      <form id="contactForm">
+        <div class="input-row">
+          <input type="text" id="nome" name="nome" placeholder="Seu Nome Completo" required>
+        </div>
+        <div class="input-row">
+          <input type="email" id="email" name="email" placeholder="Seu melhor E-mail" required>
+          <input type="text" id="telefone" name="telefone" placeholder="WhatsApp (11) 99999-9999" maxlength="15" onkeyup="handlePhone(event)" required>
+        </div>
+
+        <div class="lgpd-container">
+          <div class="terms-area">
+            <input type="checkbox" id="termos" required>
+            <label for="termos">
+              Aceito receber comunicações. Meus dados serão tratados conforme a 
+              <a href="politica-privacidade.html" target="_blank">Política de Privacidade</a>.
+            </label>
+          </div>
+          <small class="lgpd-note">* Você pode cancelar sua inscrição a qualquer momento.</small>
+        </div>
+
+        <button type="submit" id="btnEnviar">Inspire-me</button>
+      </form>
+      <div id="mensagemFeedback"></div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+<footer>
+    <section class="footer-contact" id="contato">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h4>Nosso Contato</h4>
+                <div class="contact-item">
+                    <span class="contact-icon">✉</span>
+                    <p>contato@stellavita.com.br</p>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✆</span>
+                    <p>(24) 98123-9310</p>
+                </div>
+            </div>
+
+            <!-- <div class="contact-social">
+                <h4>Siga-nos</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/stellavita" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">Facebook</a>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <div class="footer-bottom">
+        <p class="footer-slogan">"PARA QUEM PREENCHE O CORAÇÃO COM FÉ E POSITIVIDADE, TODAS AS ADVERSIDADES SÃO ENCARADAS COMO PASSAGEIRAS."</p>
+        <div class="footer-divider"></div>
+        <p class="copyright">&copy; 2026 Stella Vita Semijoias - Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+  <script>
+    /**
+     * STELLA VITA - Scripts de Interatividade e Cadastro
+     */
+
+    // 1. MÁSCARA DE TELEFONE
+    const handlePhone = (event) => {
+      let input = event.target;
+      input.value = phoneMask(input.value);
+    }
+
+    const phoneMask = (value) => {
+      if (!value) return "";
+      value = value.replace(/\D/g, '');
+      value = value.replace(/(\d{2})(\d)/, "($1) $2");
+      value = value.replace(/(\d{5})(\d)/, "$1-$2");
+      return value.substring(0, 15);
+    }
+
+    // 2. PROCESSAMENTO DO FORMULÁRIO
+    document.addEventListener('DOMContentLoaded', () => {
+      const contactForm = document.getElementById('contactForm');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const btn = document.getElementById('btnEnviar');
+          const feedback = document.getElementById('mensagemFeedback');
+
+          const dados = {
+            nome: document.getElementById('nome').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            telefone: document.getElementById('telefone').value.trim(),
+            termos: document.getElementById('termos').checked
+          };
+
+          if (dados.telefone.length < 14) {
+            feedback.innerHTML = `<p style="color: #ff4d4d; margin-top: 15px; font-weight: 600;">Por favor, insira um telefone válido com DDD.</p>`;
+            document.getElementById('telefone').focus();
+            return;
+          }
+
+          btn.innerText = "PREPARANDO INSPIRAÇÕES...";
+          btn.disabled = true;
+          feedback.innerHTML = "";
+
+          try {
+            const response = await fetch('api.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(dados)
+            });
+
+            if (!response.ok) throw new Error('Erro na resposta do servidor');
+
+            const result = await response.json();
+
+            if (result.success) {
+              feedback.innerHTML = `<p style="color: #C98E34; margin-top: 15px; font-weight: bold;">${result.message}</p>`;
+              contactForm.reset();
+            } else {
+              feedback.innerHTML = `<p style="color: #ff4d4d; margin-top: 15px; font-weight: bold;">${result.message}</p>`;
+            }
+
+          } catch (error) {
+            console.error('Erro no envio:', error);
+            feedback.innerHTML = `<p style="color: #ff4d4d; margin-top: 15px; font-weight: bold;">Erro técnico ao conectar com o servidor.</p>`;
+          } finally {
+            btn.innerText = "Inspire-me";
+            btn.disabled = false;
+          }
+        });
+      }
+
+      // 3. SCROLL SUAVE
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (targetId !== "#") {
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
