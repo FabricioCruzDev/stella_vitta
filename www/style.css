@@ -1,10 +1,10 @@
 /* --- 1. DEFINIÇÕES GERAIS E CORES --- */
 :root {
-    --dark-blue: #1D2B32;    /* Cor fundo original */
-    --gold: #C98E34;         /* Dourado original */
-    --gold-light: #e5b66a;   /* Dourado brilho */
+    --dark-blue: #1D2B32;
+    --gold: #C98E34;
+    --gold-light: #e5b66a;
     --white: #FFFFFF;
-    --light-bg: #F4F4F4;     /* Bege claro para seções */
+    --light-bg: #F4F4F4;
     --text-gray: #555555;
 }
 
@@ -26,64 +26,41 @@ body {
     overflow-x: hidden;
 }
 
-/* Tipografia Serifada para Títulos (Luxo) */
 h1, h2, h3, h4, .footer-slogan {
     font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-/* --- 2. HEADER (LOGO + TÍTULO) --- */
+/* --- 2. HEADER --- */
 header {
     background-color: var(--dark-blue);
-    padding: 40px 20px;
+    padding: 15px 20px;
     text-align: center;
-    border-bottom: 5px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+}
+
+.logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo-title-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 10px;
 }
 
 .header-logo {
-    height: 13.5rem; /* Alinhado com o tamanho do H1 */
+    height: 65vh;
     width: auto;
+    display: block;
 }
 
-header h1 {
-    color: var(--gold);
-    font-size: 3.5rem;
-    margin-bottom: 0;
-    line-height: 1;
-}
-
-.subtitle {
-    color: var(--white);
-    font-size: 0.8rem;
-    letter-spacing: 6px;
-    margin-top: 5px;
-}
-
-.header-divider {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-}
-
-.diamond {
-    width: 10px;
-    height: 10px;
-    background: var(--gold);
-    transform: rotate(45deg);
-}
-
-/* --- 3. HERO SECTION (CAPA) --- */
+/* --- 3. HERO SECTION --- */
 .hero {
-    height: 75vh;
+    height: 55vh;
     background: url('./src/capa.png') center/cover no-repeat;
     position: relative;
     display: flex;
@@ -92,7 +69,7 @@ header h1 {
 }
 
 .hero-overlay {
-    background: rgba(29, 43, 50, 0.65); /* Filtro azul escuro sobre a foto */
+    background: rgba(29, 43, 50, 0.65);
     width: 100%;
     height: 100%;
     display: flex;
@@ -139,8 +116,7 @@ header h1 {
 
 /* --- 4. ASSISTÊNCIA E CUIDADOS --- */
 .assistance {
-    padding: 100px 20px;
-    background: var(--white);
+    padding: 80px 20px;
 }
 
 .section-title {
@@ -192,7 +168,6 @@ header h1 {
     font-weight: 600;
     font-size: 1rem;
     margin-bottom: 15px;
-    color: var(--dark-blue);
 }
 
 .care-item p {
@@ -211,7 +186,6 @@ header h1 {
     min-width: 320px;
     padding: 80px 40px;
     text-align: center;
-    background: var(--white);
 }
 
 .mvv-box.highlight {
@@ -224,7 +198,7 @@ header h1 {
     margin-bottom: 20px;
 }
 
-/* --- 6. SEÇÃO CADASTRO (LGPD) --- */
+/* --- 6. SEÇÃO CADASTRO --- */
 .warranty-section {
     padding: 100px 20px;
     background-color: var(--light-bg);
@@ -270,10 +244,8 @@ input[type="text"], input[type="email"] {
     padding: 15px;
     border: 1px solid #ddd;
     font-family: 'Montserrat', sans-serif;
-    outline-color: var(--gold);
 }
 
-/* LGPD container */
 .lgpd-container {
     text-align: left;
     margin: 25px 0 35px;
@@ -288,19 +260,16 @@ input[type="text"], input[type="email"] {
 .terms-area input {
     width: 20px;
     height: 20px;
-    margin-top: 3px;
     accent-color: var(--gold);
 }
 
 .terms-area label {
     font-size: 0.85rem;
     color: var(--text-gray);
-    line-height: 1.4;
 }
 
 .terms-area a {
     color: var(--gold);
-    text-decoration: underline;
 }
 
 .lgpd-note {
@@ -310,7 +279,6 @@ input[type="text"], input[type="email"] {
     margin-top: 8px;
 }
 
-/* Botão Inspire-me */
 #btnEnviar {
     width: 100%;
     padding: 22px;
@@ -332,8 +300,7 @@ input[type="text"], input[type="email"] {
 footer {
     background: var(--dark-blue);
     color: var(--white);
-    padding: 80px 20px 40px;
-    border-top: 1px solid rgba(201, 142, 52, 0.2);
+    padding: 60px 20px 40px;
 }
 
 .contact-container {
@@ -341,117 +308,93 @@ footer {
     justify-content: space-around;
     flex-wrap: wrap;
     max-width: 1000px;
-    margin: 0 auto 60px;
+    margin: 0 auto 40px;
     text-align: center;
     gap: 40px;
 }
 
-.footer-contact h4 {
+.footer-contact h4, .contact-social h4 {
     color: var(--gold);
     font-size: 1.4rem;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-.contact-link {
+.contact-link, .social-links a {
     color: var(--white);
     text-decoration: none;
-    transition: 0.3s ease;
-    font-size: 0.95rem;
+    transition: 0.3s;
 }
 
-.contact-link:hover {
+.contact-link:hover, .social-links a:hover {
     color: var(--gold);
-    text-wrap: underline
-}
-
-.social-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: 0.3s ease;
-    border-bottom: 1px solid transparent;
-}
-
-.social-links a:hover {
-    color: var(--gold);
-    border-bottom: 1px solid var(--gold);
 }
 
 .contact-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.contact-icon {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 300;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
 .footer-bottom {
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
 }
 
-/* Ajuste Mobile */
-@media (max-width: 768px) {
-    .contact-container { flex-direction: column; }
+.footer-slogan {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    opacity: 0.8;
 }
 
-/* --- 8. RESPONSIVIDADE --- */
+/* --- 8. RESPONSIVIDADE AJUSTADA --- */
 @media (max-width: 768px) {
-    .logo-title-wrapper {
-        flex-direction: column;
-        gap: 10px;
+    /* Remove paddings laterais do header para a logo encostar nas bordas */
+    header {
+        padding: 10px 0; 
     }
 
-    header h1 {
-        font-size: 2.5rem;
+    .logo-area, .logo-title-wrapper {
+        width: 100%;
+        display: block;
     }
 
     .header-logo {
-        height: 5.5rem;
+        width: 100% !important; /* Força a largura total */
+        height: auto !important; /* Mantém a proporção da imagem sem achatar */
+        max-height: none; /* Remove limites de altura anteriores */
+        display: block;
+        margin: 0;
     }
 
+    /* Ajuste da Hero para não ficar grudada na logo gigante */
     .hero {
-        /* Reduzimos de 75vh para algo mais equilibrado no celular */
-        height: 50vh; 
-        min-height: 350px; /* Garante que não fique pequeno demais em celulares antigos */
-    }
-
-    .hero-content {
-        padding: 0 15px;
+        height: 50vh;
+        min-height: 350px;
     }
 
     .hero h2 {
-        /* Diminuímos o tamanho da fonte para não ocupar a tela toda */
-        font-size: 2.2rem; 
-        line-height: 1.2;
-        margin-bottom: 15px;
+        font-size: 2rem;
     }
 
-    .hero p {
-        font-size: 1rem;
-        margin-bottom: 25px;
+    /* Garante que nada escape da largura da tela (evita borda branca) */
+    .mvv-box {
+        min-width: 100%;
+        padding: 40px 20px;
     }
 
-    .btn-cta {
-        padding: 15px 30px; /* Botão um pouco menor para o polegar */
-        font-size: 0.85rem;
+    .care-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container-form {
+        padding: 30px 15px;
+        width: 100%;
     }
 
     .input-row {
         flex-direction: column;
-        gap: 15px;
-    }
-
-    .container-form {
-        padding: 40px 25px;
     }
 }

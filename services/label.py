@@ -25,18 +25,20 @@ def normalize_descricao(text):
 
 
 # Buscando e preparando os dados
-df = pd.read_excel('./datawarehouse/raw/produtos-precificacao.xlsx', skiprows=1)
+df = pd.read_excel('./datawarehouse/raw/2- PRODUTOS - PRECIFICAÇAO segunda compra 10.02.xlsx', skiprows=1, sheet_name='Sheet1')
 print(df.info())
-df = df[['SKU', 'DESCRICAO', 'VALOR FINAL']].copy()
-df['VALOR FINAL'] = round(df['VALOR FINAL'], 2)
+df = df[['SKU', 'DESCRICAO', 'VALOR FINAL AJUSTADO']].copy()
+df['VALOR FINAL AJUSTADO'] = round(df['VALOR FINAL AJUSTADO'], 2)
 df['DESC'] = df['DESCRICAO'].apply(normalize_descricao)
-df['VALOR_STR'] = df['VALOR FINAL'].apply(lambda x: f"R$ {x:,.2f}".replace(',', 'X').replace('.', ',').replace('X', '.'))
+df['VALOR_STR'] = df['VALOR FINAL AJUSTADO'].apply(lambda x: f"R$ {x:,.2f}".replace(',', 'X').replace('.', ',').replace('X', '.'))
 df['VALOR FINAL'] = df['VALOR_STR']
-print(df.head(10))
+print(df)
 
 df_ag = (df.loc[df['SKU'].str.endswith('AG', na=False)])
+print(df_ag)
 df_au = (df.loc[df['SKU'].str.endswith('AU', na=False)])
+print(df_au)
 
-df.to_excel('./datawarehouse/etiquetas/etiquetas.xlsx', index=False)
-df_ag.to_excel('./datawarehouse/etiquetas/etiquetas_ag.xlsx', index=False)
-df_au.to_excel('./datawarehouse/etiquetas/etiquetas_au.xlsx', index=False)
+df.to_excel('./datawarehouse/etiquetas/etiquetas_2.xlsx', index=False)
+df_ag.to_excel('./datawarehouse/etiquetas/etiquetas_ag_2.xlsx', index=False)
+df_au.to_excel('./datawarehouse/etiquetas/etiquetas_au_2.xlsx', index=False)

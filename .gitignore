@@ -34,3 +34,7 @@ uv.lock
 
 # outputs
 etiquetas/
+outputs/
+raw/
+datawarehouse/output/produtos_novos_sku.xlsx
+datawarehouse/output/produtos_sku.csv
